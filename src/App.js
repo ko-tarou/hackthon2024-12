@@ -9,7 +9,7 @@ function App() {
       <header>
         <nav>
           <Link to="/">ホーム</Link>
-          <Link to="/project"></Link>
+          <Link to="/project">プロジェクト</Link>
         </nav>
       </header>
       <Routes>
