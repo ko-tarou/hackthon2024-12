@@ -23,7 +23,6 @@ function Toppage() {
     }
   }
 
-  
   return (
 
     <div className='Toppage'>
