@@ -8,10 +8,10 @@ function Slidepage() {
 			<div className='object-list'></div>
 			<div className='not-object'>
 				<div className='main'>
-					<div className='main-slide'>メインスライド</div>
-					<div className='note'>ノート</div>
+					<div className='main-slide'></div>
+					<div className='note'></div>
 				</div>
-				<div className='slide-list'>スライドリスト</div>
+				<div className='slide-list'></div>
 			</div>
 
 
