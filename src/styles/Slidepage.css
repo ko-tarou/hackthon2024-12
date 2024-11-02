@@ -4,8 +4,10 @@
     margin: 5vh;
 }
 
-.Slidepage .main{
+.Slidepage .not-object .main{
     display: flex;
+    gap: 5vw;
+    margin-bottom: 5vh;
 }
 
 .Slidepage .object-list{
@@ -22,6 +24,16 @@
     width: 75vw;
 }
 
-.Slidepage .not-object .main-slide{
+.Slidepage .not-object .main .main-slide{
     display: flex;
+    background-color: black;
+    height: 55vh;
+    width: 55vw;
+}
+
+.Slidepage .not-object .main .note{
+    display: flex;
+    background-color: black;
+    height: 55vh;
+    width: 15vw;
 }
