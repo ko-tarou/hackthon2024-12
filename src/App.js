@@ -7,6 +7,7 @@ import SlidePage from "./pages/Slidepage.js"
 function App() {
   return (
     <Router>
+      {/* ページ遷移 */}
       <header>
         <nav>
           <Link to="/">ホーム</Link>

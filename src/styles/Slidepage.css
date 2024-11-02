@@ -1,3 +1,43 @@
+/* object-list */
+
+.object-list .tab{
+    display: flex;
+    width: 30%;
+    background-color: white;
+    border: 5px solid black;
+}
+
+.object-list .content{
+    display: flex;
+    width: 70%;
+    background-color: white;
+    border: 5px solid black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 基本構成 */
 .Slidepage{
     display: flex;
     gap: 5vw;
