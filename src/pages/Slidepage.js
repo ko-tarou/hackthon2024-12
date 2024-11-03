@@ -1,27 +1,24 @@
-import React from 'react'
+import React ,{useState}from 'react'
 import "../styles/Slidepage.css"
-import Tabs from '../common/object-list-tab/Tabs'
+import Tabs from "../common/object-list-tab/Tabs"
+import TabContent from "../common/object-list-tab/TabContent"
 
 function Slidepage() {
+
+	const [activeTab,setActiveTab] = useState("tab1");
+
 	return (
     <div className='Slidepage'>
 
 			{/* object-list */}
 			<div className='object-list'>
 				<div className='tab'>
-					<Tabs></Tabs>
+					<Tabs activeTab={activeTab} setActiveTab={setActiveTab}/>
 				</div>
-				<div className='content'></div>
-				
+				<div className='content'>
+					<TabContent activeTab={activeTab}/>	
+				</div>
 			</div>
-
-
-
-
-
-
-
-
 
 			<div className='not-object'>
 				<div className='main'>
@@ -33,7 +30,7 @@ function Slidepage() {
 
 
 		</div>
-  )
+	)
 }
 
 export default Slidepage
