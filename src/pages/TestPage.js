@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
@@ -48,17 +48,26 @@ function TextBox({ text }) {
 }
 
 function DropZone({ onDrop }) {
+  const dropRef = useRef(null);
+
   const [, drop] = useDrop({
     accept: ItemTypes.TEXT_BOX,
     drop: (item, monitor) => {
+      if (!dropRef.current) return; // dropRef が null の場合を確認
+
       const offset = monitor.getSourceClientOffset(); // ドロップ位置を取得
-      onDrop(item, offset); // ドロップ位置とテキスト情報を渡す
+      const dropZoneRect = dropRef.current.getBoundingClientRect(); // DropZoneの位置とサイズを取得
+      const relativeX = offset.x - dropZoneRect.left;
+      const relativeY = offset.y - dropZoneRect.top;
+      onDrop(item, { x: relativeX, y: relativeY });
     },
   });
 
+  drop(dropRef); // 明示的に dropRef に drop を割り当てる
+
   return (
     <div
-      ref={drop}
+      ref={dropRef}
       style={{
         position: 'relative',
         width: '100%',
