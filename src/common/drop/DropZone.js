@@ -13,8 +13,8 @@ function DropZone({ onDrop }) {
     drop: (item, monitor) => {
       if (!dropRef.current) return;
 
-      const offset = monitor.getClientOffset();
-      const dropZoneRect = dropRef.current.getBoundingClientRect();
+      const offset = monitor.getSourceClientOffset(); // ドラッグ開始位置に基づいたドロップ位置を取得
+      const dropZoneRect = dropRef.current.getBoundingClientRect(); // DropZoneの位置とサイズを取得
       const relativeX = offset.x - dropZoneRect.left;
       const relativeY = offset.y - dropZoneRect.top;
       onDrop(item, { x: relativeX, y: relativeY });
