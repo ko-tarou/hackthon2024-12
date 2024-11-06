@@ -12,16 +12,30 @@ function Slidepage() {
   const [textBoxes, setTextBoxes] = useState([]);
 
   const handleDrop = (item, position) => {
-    const newId = textBoxes.length + 1;
-    setTextBoxes([
-      ...textBoxes,
-      {
-        id: newId,
-        text: item.text || `TextBox ${newId}`,
-        x: position.x,
-        y: position.y,
-      },
-    ]);
+    setTextBoxes((prevBoxes) => {
+      // 既存のボックスの位置を更新するか、新規ボックスを追加
+      const existingBoxIndex = prevBoxes.findIndex((box) => box.id === item.id);
+      if (existingBoxIndex !== -1) {
+        const updatedBoxes = [...prevBoxes];
+        updatedBoxes[existingBoxIndex] = {
+          ...updatedBoxes[existingBoxIndex],
+          x: position.x,
+          y: position.y,
+        };
+        return updatedBoxes;
+      } else {
+        const newId = prevBoxes.length + 1;
+        return [
+          ...prevBoxes,
+          {
+            id: newId,
+            text: item.text || `TextBox ${newId}`,
+            x: position.x,
+            y: position.y,
+          },
+        ];
+      }
+    });
   };
 
   return (

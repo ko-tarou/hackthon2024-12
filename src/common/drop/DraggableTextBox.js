@@ -8,7 +8,7 @@ const ItemTypes = {
 function DraggableTextBox({ id, text, x, y }) {
   const [{ isDragging }, drag] = useDrag({
     type: ItemTypes.TEXT_BOX,
-    item: { id, text },
+    item: { id, text }, // idも渡して特定できるように
     collect: (monitor) => ({
       isDragging: monitor.isDragging(),
     }),
