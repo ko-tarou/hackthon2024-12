@@ -5,7 +5,7 @@ import "../styles/Slidepage.css";
 import Tabs from "../common/object-list-tab/Tabs";
 import TabContent from "../common/object-list-tab/TabContent";
 import DropZone from '../common/drop/DropZone';
-import DraggableTextBox from '../common/drop/DraggableTextBox';
+import TextBox from '../common/drop/TextBox';
 
 function Slidepage() {
   const [activeTab, setActiveTab] = useState("tab1");
@@ -13,7 +13,6 @@ function Slidepage() {
 
   const handleDrop = (item, position) => {
     setTextBoxes((prevBoxes) => {
-      // 既存のボックスの位置を更新するか、新規ボックスを追加
       const existingBoxIndex = prevBoxes.findIndex((box) => box.id === item.id);
       if (existingBoxIndex !== -1) {
         const updatedBoxes = [...prevBoxes];
@@ -38,10 +37,17 @@ function Slidepage() {
     });
   };
 
+  const handleTextChange = (id, newText) => {
+    setTextBoxes((prevBoxes) =>
+      prevBoxes.map((box) =>
+        box.id === id ? { ...box, text: newText } : box
+      )
+    );
+  };
+
   return (
     <DndProvider backend={HTML5Backend}>
       <div className='Slidepage'>
-        {/* object-list */}
         <div className='object-list'>
           <div className='tab'>
             <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
@@ -55,12 +61,13 @@ function Slidepage() {
             <div className='main-slide' style={{ position: 'relative', height: '100%' }}>
               <DropZone onDrop={handleDrop} />
               {textBoxes.map((box) => (
-                <DraggableTextBox
+                <TextBox
                   key={box.id}
                   id={box.id}
                   text={box.text}
                   x={box.x}
                   y={box.y}
+                  onTextChange={handleTextChange}
                 />
               ))}
             </div>
