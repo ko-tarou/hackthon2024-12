@@ -53,7 +53,7 @@ function DropZone({ onDrop }) {
   const [, drop] = useDrop({
     accept: ItemTypes.TEXT_BOX,
     drop: (item, monitor) => {
-      if (!dropRef.current) return; // dropRef が null の場合を確認
+      if (!dropRef.current) return;
 
       const offset = monitor.getSourceClientOffset(); // ドロップ位置を取得
       const dropZoneRect = dropRef.current.getBoundingClientRect(); // DropZoneの位置とサイズを取得
@@ -63,7 +63,7 @@ function DropZone({ onDrop }) {
     },
   });
 
-  drop(dropRef); // 明示的に dropRef に drop を割り当てる
+  drop(dropRef);
 
   return (
     <div
@@ -99,7 +99,7 @@ function TabContent() {
       <div style={{ display: 'flex' }}>
         <div style={{ padding: '10px', borderRight: '1px solid gray' }}>
           <h3>タブ</h3>
-          <TextBox text="ドラッグして追加" />
+          <TextBox text="T" />
         </div>
         <div style={{ flex: 1, position: 'relative' }}>
           <DropZone onDrop={handleDrop} />

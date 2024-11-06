@@ -1,6 +1,7 @@
 import React from 'react'
 import MovableTextBox from '../../common/MovableTextBox'
 import "../../styles/tabs/Char.css"
+import TextBoxArea from "../../common/drop/TextBoxArea"
 
 function Char() {
   return (
@@ -9,6 +10,7 @@ function Char() {
       <div className='item'>
         <MovableTextBox/>
       </div>
+      <TextBoxArea/>
     </div>
 	)
 }
