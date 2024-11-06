@@ -1,11 +1,14 @@
 import React from 'react';
+import Char from "../../pages/tabs/Char.js"
 
 function TabContent({ activeTab }) {
   return (
-    <div style={{ border: '1px solid gray', padding: '20px' }}>
-      {activeTab === "tab1" && <div>タブ1の内容</div>}
+    <div style={{display: "flex",flexDirection : "column",height:"100%",width:"100%",justifyContent: "center",alignItems: "center" }}>
+      {activeTab === "tab1" && <div><Char/></div>}
       {activeTab === "tab2" && <div>タブ2の内容</div>}
       {activeTab === "tab3" && <div>タブ3の内容</div>}
+      {activeTab === "tab4" && <div>タブ4の内容</div>}
+      {activeTab === "tab5" && <div>タブ5の内容</div>}
     </div>
   );
 }

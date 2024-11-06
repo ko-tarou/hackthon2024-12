@@ -9,12 +9,12 @@ function MovableTextBox() {
 		setText(e.target.value)
 	}
 
-  return (
+	return (
 		<Draggable>
 			<div style={{
-				padding : '10px',
-				border : '1px solid black',
-				width : '200px',
+				border : '1px dashed black',
+				width : '30px',
+				height : "30px",
 				cursor : 'move',
 				background : '#f0f0f0',
 				textAlign : 'center'
