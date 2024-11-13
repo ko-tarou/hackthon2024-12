@@ -1,33 +1,60 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDrag } from 'react-dnd';
 import { ItemTypes } from './ItemTypes';
-import useWebSocket from './useWebSocket.js';
 
-function TextBox({ id, text, x, y, onPositionChange }) {
-  const [position, setPosition] = useState({ x, y });
+function TextBox({ id, text, x, y, onTextChange, onSelect, onFocus, onBlur }) {
+  const [value, setValue] = useState(text || "");
+  const [size, setSize] = useState({ width: 100, height: 50 });
 
-  const { sendUpdate } = useWebSocket();
+  useEffect(() => {
+    setValue(text);
+  }, [text]);
 
-  const [{ isDragging }, drag, preview] = useDrag({
+  const [{ isDragging }, drag] = useDrag({
     type: ItemTypes.TEXT_BOX,
-    item: { id, x: position.x, y: position.y },
+    item: { id, text: value, x, y },
     collect: (monitor) => ({
       isDragging: monitor.isDragging(),
     }),
   });
 
-  const handleDragStart = (e) => {
-    e.stopPropagation();
+  const handleChange = (e) => {
+    setValue(e.target.value);
+    onTextChange(id, e.target.value);
+  };
 
-    const startX = e.clientX - position.x;
-    const startY = e.clientY - position.y;
+  const handleClick = () => {
+    if (onSelect) {
+      onSelect(id);
+    }
+  };
+
+  const handleResize = (e, direction) => {
+    e.stopPropagation();
+    e.preventDefault();
+
+    const startX = e.clientX;
+    const startY = e.clientY;
+    const startWidth = size.width;
+    const startHeight = size.height;
 
     const handleMouseMove = (e) => {
-      const newX = e.clientX - startX;
-      const newY = e.clientY - startY;
-      setPosition({ x: newX, y: newY });
-      onPositionChange(id, newX, newY);
-      sendUpdate({ id, x: newX, y: newY });
+      let newWidth = startWidth;
+      let newHeight = startHeight;
+
+      if (direction.includes("right")) {
+        newWidth = startWidth + (e.clientX - startX);
+      } else if (direction.includes("left")) {
+        newWidth = startWidth - (e.clientX - startX);
+      }
+
+      if (direction.includes("bottom")) {
+        newHeight = startHeight + (e.clientY - startY);
+      } else if (direction.includes("top")) {
+        newHeight = startHeight - (e.clientY - startY);
+      }
+
+      setSize({ width: newWidth, height: newHeight });
     };
 
     const handleMouseUp = () => {
@@ -41,25 +68,71 @@ function TextBox({ id, text, x, y, onPositionChange }) {
 
   return (
     <div
-      ref={preview}
-      onMouseDown={handleDragStart} // ドラッグ機能を有効にする
+      ref={drag}
+      onClick={handleClick}
+      onFocus={onFocus}
+      onBlur={onBlur}
       style={{
-        width: '100px',
-        height: '50px',
+        width: `${size.width}px`,
+        height: `${size.height}px`,
+        opacity: isDragging ? 0.5 : 1,
         padding: '10px',
         border: '1px solid black',
         cursor: 'move',
         position: 'absolute',
-        left: position.x,
-        top: position.y,
+        left: x,
+        top: y,
         transform: 'translate(-50%, -50%)',
-        backgroundColor: 'white',
-        opacity: isDragging ? 0.5 : 1,
       }}
     >
-      <span>{text}</span>
+      <input
+        type="text"
+        value={value}
+        onChange={handleChange}
+        style={{
+          width: '100%',
+          height: '100%',
+          border: 'none',
+          outline: 'none',
+        }}
+      />
+      {/* 四隅のリサイズハンドル */}
+      <div onMouseDown={(e) => handleResize(e, "top-left")} style={resizeHandleStyle("top", "left")} />
+      <div onMouseDown={(e) => handleResize(e, "top-right")} style={resizeHandleStyle("top", "right")} />
+      <div onMouseDown={(e) => handleResize(e, "bottom-left")} style={resizeHandleStyle("bottom", "left")} />
+      <div onMouseDown={(e) => handleResize(e, "bottom-right")} style={resizeHandleStyle("bottom", "right")} />
+      {/* 上下左右のリサイズハンドル */}
+      <div onMouseDown={(e) => handleResize(e, "top")} style={resizeHandleStyle("top")} />
+      <div onMouseDown={(e) => handleResize(e, "right")} style={resizeHandleStyle("right")} />
+      <div onMouseDown={(e) => handleResize(e, "bottom")} style={resizeHandleStyle("bottom")} />
+      <div onMouseDown={(e) => handleResize(e, "left")} style={resizeHandleStyle("left")} />
+      {/* 上下左右の中点クリックでテキストボックス選択 */}
+      <div onClick={(e) => { e.stopPropagation(); handleClick(); }} style={centerHandleStyle("top")} />
+      <div onClick={(e) => { e.stopPropagation(); handleClick(); }} style={centerHandleStyle("right")} />
+      <div onClick={(e) => { e.stopPropagation(); handleClick(); }} style={centerHandleStyle("bottom")} />
+      <div onClick={(e) => { e.stopPropagation(); handleClick(); }} style={centerHandleStyle("left")} />
     </div>
   );
 }
+
+const resizeHandleStyle = (vertical, horizontal) => ({
+  position: 'absolute',
+  width: vertical ? '100%' : '8px',
+  height: horizontal ? '100%' : '8px',
+  backgroundColor: 'transparent',
+  cursor: `${vertical || ''}${horizontal || ''}-resize`,
+  [vertical]: vertical && 0,
+  [horizontal]: horizontal && 0,
+});
+
+const centerHandleStyle = (position) => ({
+  position: 'absolute',
+  width: position === 'top' || position === 'bottom' ? '30px' : '8px',
+  height: position === 'left' || position === 'right' ? '30px' : '8px',
+  backgroundColor: 'transparent',
+  cursor: 'pointer',
+  [position]: '50%',
+  transform: 'translate(-50%, -50%)',
+});
 
 export default TextBox;
