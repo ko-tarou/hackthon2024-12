@@ -8,7 +8,8 @@ import TabContent from "../common/object-list-tab/TabContent";
 import DropZone from '../common/drop/DropZone';
 import TextBox from '../common/drop/TextBox';
 
-const socket = io("http://localhost:5000"); // サーバーのURLに合わせて変更
+// const socket = io("http://localhost:5000"); // サーバーのURLに合わせて変更
+const socket = io("http://172.18.4.181:5000"); // サーバーのURLに合わせて変更
 
 function Slidepage() {
   const [activeTab, setActiveTab] = useState("tab1");
@@ -38,10 +39,15 @@ function Slidepage() {
       });
     });
 
+    socket.on("deleteTextBox",(boxId) => {
+      setTextBoxes((prevBoxes) => prevBoxes.filter((box) => box.id !==boxId))
+    })
+
     // クリーンアップでリスナーを解除
     return () => {
       socket.off("textBoxes");
       socket.off("textBoxUpdated");
+      socket.off("deleteTextBox")
     };
   }, []);
 
