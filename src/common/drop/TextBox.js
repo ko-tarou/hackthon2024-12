@@ -5,6 +5,7 @@ import { ItemTypes } from './ItemTypes';
 function TextBox({ id, text, x, y, onTextChange, onSelect, onFocus, onBlur }) {
   const [value, setValue] = useState(text || "");
   const [size, setSize] = useState({ width: 100, height: 50 });
+  const [isEditing, setIsEditing] = useState(false); // 新しく追加
 
   useEffect(() => {
     setValue(text);
@@ -27,6 +28,14 @@ function TextBox({ id, text, x, y, onTextChange, onSelect, onFocus, onBlur }) {
     if (onSelect) {
       onSelect(id);
     }
+  };
+
+  const handleDoubleClick = () => {
+    setIsEditing(true); // ダブルクリック時に編集モードに切り替え
+  };
+
+  const handleBlur = () => {
+    setIsEditing(false); // 入力エリアからフォーカスを外したときに編集モードを終了
   };
 
   const handleResize = (e, direction) => {
@@ -70,6 +79,7 @@ function TextBox({ id, text, x, y, onTextChange, onSelect, onFocus, onBlur }) {
     <div
       ref={drag}
       onClick={handleClick}
+      onDoubleClick={handleDoubleClick} // ダブルクリックイベントの追加
       onFocus={onFocus}
       onBlur={onBlur}
       style={{
@@ -85,17 +95,25 @@ function TextBox({ id, text, x, y, onTextChange, onSelect, onFocus, onBlur }) {
         transform: 'translate(-50%, -50%)',
       }}
     >
-      <input
-        type="text"
-        value={value}
-        onChange={handleChange}
-        style={{
-          width: '100%',
-          height: '100%',
-          border: 'none',
-          outline: 'none',
-        }}
-      />
+      {isEditing ? (
+        <input
+          type="text"
+          value={value}
+          onChange={handleChange}
+          onBlur={handleBlur} // 入力終了時のイベント追加
+          autoFocus // 自動的にフォーカス
+          style={{
+            width: '100%',
+            height: '100%',
+            border: 'none',
+            outline: 'none',
+          }}
+        />
+      ) : (
+        <div style={{ width: '100%', height: '100%' }}>
+          {value || "ダブルクリックで編集"}
+        </div>
+      )}
       {/* 四隅のリサイズハンドル */}
       <div onMouseDown={(e) => handleResize(e, "top-left")} style={resizeHandleStyle("top", "left")} />
       <div onMouseDown={(e) => handleResize(e, "top-right")} style={resizeHandleStyle("top", "right")} />

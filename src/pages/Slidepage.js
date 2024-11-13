@@ -9,7 +9,7 @@ import DropZone from '../common/drop/DropZone';
 import TextBox from '../common/drop/TextBox';
 
 // const socket = io("http://localhost:5000"); // サーバーのURLに合わせて変更
-const socket = io("http://172.18.4.181:5000"); // サーバーのURLに合わせて変更
+const socket = io("http://192.168.200.108:5000"); // サーバーのURLに合わせて変更
 
 function Slidepage() {
   const [activeTab, setActiveTab] = useState("tab1");
