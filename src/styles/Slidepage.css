@@ -1,0 +1,88 @@
+/* object-list */
+
+.object-list .tab{
+    display: flex;
+    width: 30%;
+    background-color: white;
+    border: 5px solid black;
+}
+
+.object-list .content{
+    display: flex;
+    width: 70%;
+    background-color: white;
+    border: 5px solid black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 基本構成 */
+.Slidepage{
+    display: flex;
+    gap: 5vw;
+    margin: 5vh;
+}
+
+.Slidepage .not-object{
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+
+.Slidepage .not-object .main{
+    display: flex;
+    gap: 5vw;
+}
+
+.Slidepage .object-list{
+    display: flex;
+    background-color: white;
+    border: 10px solid black;
+    height: 80vh;
+    width: 15vw;
+}
+
+.Slidepage .not-object .slide-list{
+    display: flex;
+    background-color: white;
+    border: 10px solid black;
+    height: 10vh;
+    width: 75vw;
+}
+
+.Slidepage .not-object .main .main-slide{
+    display: flex;
+    background-color: white;
+    border: 10px solid black;
+    height: 60vh;
+    width: 55vw;
+}
+
+.Slidepage .not-object .main .note{
+    display: flex;
+    background-color: white;
+    border: 10px solid black;
+    height: 60vh;
+    width: 15vw;
+}
