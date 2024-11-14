@@ -8,8 +8,8 @@ import TabContent from "../common/object-list-tab/TabContent";
 import DropZone from '../common/drop/DropZone';
 import TextBox from '../common/drop/TextBox';
 
-// const socket = io("http://localhost:5000"); // サーバーのURLに合わせて変更
-const socket = io("http://192.168.200.108:5000"); // サーバーのURLに合わせて変更
+const socket = io("https://1d32-202-13-166-100.ngrok-free.app"); // サーバーのURLに合わせて変更
+// const socket = io("http://192.168.56.1:5000"); // サーバーのURLに合わせて変更
 
 function Slidepage() {
   const [activeTab, setActiveTab] = useState("tab1");
