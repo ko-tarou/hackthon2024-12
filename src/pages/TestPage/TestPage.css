@@ -1,5 +1,28 @@
+.TestPage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
 .title{
     text-align: center;
     font-size: 100px;
     padding-top: 5%;
+    justify-content: center;
+};
+
+.button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px; /* ボタンの横幅 */
+    height: 50px; /* ボタンの縦幅 */
+    font-size: 18px; /* テキストの大きさ */
+    padding: 10px 20px;
+    margin: 10px 0; /* ボタン同士の間隔 */
+    cursor: pointer;
+    
 }
+  
