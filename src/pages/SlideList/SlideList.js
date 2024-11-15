@@ -9,7 +9,6 @@ const SlideList = () => {
       textRef.current.focus(); // クリック時にフォーカスを設定
     }
   };
-
   return (
     <div
       ref={textRef}
