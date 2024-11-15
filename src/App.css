@@ -1,4 +1,26 @@
-header{
-    height: 50px;
-    background-color: gray;
+header {
+    background-color: #fff; /* 背景色 */
+    padding: 10px 20px; /* 上下左右のパディング */
+    border-bottom: 2px solid #ddd; /* 下部に薄いグレーの仕切り線 */
 }
+
+nav {
+    display: flex; /* 横並びに */
+    justify-content: space-around; /* 各リンクを均等配置 */
+    align-items: center; /* 縦方向の中央揃え */
+}
+
+nav a {
+    text-decoration: none; /* 下線を削除 */
+    font-size: 18px; /* フォントサイズ */
+    color: #333; /* テキストの色 */
+    padding: 8px 12px; /* パディング */
+    transition: color 0.3s ease, background-color 0.3s ease; /* ホバー時の変化 */
+}
+
+nav a:hover {
+    color: #fff; /* ホバー時のテキスト色 */
+    background-color: #007bff; /* ホバー時の背景色 */
+    border-radius: 4px; /* 角を丸く */
+}
+
