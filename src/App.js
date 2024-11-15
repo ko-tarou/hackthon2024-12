@@ -16,7 +16,9 @@ function App() {
           <Link to="/slide">スライド</Link>
           <Link to="/test">実験</Link>
         </nav>
+        <button class="circle-button">?</button>
       </header>
+
       <Routes>
         <Route path="/" element={<Toppage/>}/>
         <Route path="/project" element={<Projectpage/>}/>
