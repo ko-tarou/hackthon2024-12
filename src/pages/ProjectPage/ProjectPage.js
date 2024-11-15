@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import "../styles/Projectpage.css";
+import "./ProjectPage.css";
 import axios from 'axios';
 import io from 'socket.io-client';
 

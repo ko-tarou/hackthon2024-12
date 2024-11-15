@@ -2,11 +2,11 @@ import React, { useState, useEffect, useCallback } from 'react';
 import io from 'socket.io-client';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
-import "../styles/Slidepage.css";
-import Tabs from "../common/object-list-tab/Tabs";
-import TabContent from "../common/object-list-tab/TabContent";
-import DropZone from '../common/drop/DropZone';
-import TextBox from '../common/drop/TextBox';
+import "./SlidePage.css";
+import Tabs from "../../components/Tab/Tabs";
+import TabContent from "../../components/Tab/TabContent";
+import DropZone from '../../components/Elements/DropZone/DropZone';
+import TextBox from '../../components/Elements/TextBox/TextBox';
 
 const socket = io("https://1d32-202-13-166-100.ngrok-free.app"); // サーバーのURLに合わせて変更
 // const socket = io("http://192.168.56.1:5000"); // サーバーのURLに合わせて変更
