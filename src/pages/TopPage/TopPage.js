@@ -31,7 +31,7 @@ function Toppage() {
       <div>高岡己太朗</div>
       <div></div>
       <div></div>
-      <div></div>
+      <div>岩崎一道</div>
       <div></div>
 
 
