@@ -7,6 +7,7 @@ import Tabs from "../../components/Tab/Tabs";
 import TabContent from "../../components/Tab/TabContent";
 import DropZone from '../../components/Elements/DropZone/DropZone';
 import TextBox from '../../components/Elements/TextBox/TextBox';
+import SlideList from '../SlideList/SlideList';
 
 const socket = io("https://1d32-202-13-166-100.ngrok-free.app"); // サーバーのURLに合わせて変更
 // const socket = io("http://192.168.56.1:5000"); // サーバーのURLに合わせて変更
