@@ -1,0 +1,46 @@
+.TestPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.title {
+    text-align: center;
+    font-size: 100px;
+    padding-top: 5%;
+    justify-content: center;
+    margin-bottom: 100px;
+    font-family: serif;
+}
+
+.button {
+    width: 250px; /* ボタンの横幅 */
+    height: 60px; /* ボタンの縦幅 */
+    font-size: 20px; /* ボタン内テキストのサイズ */
+    margin: 30px 0; /* ボタン同士の間隔 */
+    cursor: pointer; /* マウスホバー時の手のアイコン */
+    border: 2px solid #000; /* ボタンの枠線 */
+    border-radius: 5px; /* ボタンの角を丸める（任意） */
+    background-color: #ffffff; /* ボタンの背景色 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s ease, box-shadow 0.1s ease; /* アニメーションの追加 */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* 通常の影 */
+    font-family: serif;
+    
+
+};
+/* ホバー時の変化 */
+.button:hover {
+    background-color: #e0e0e0; /* ボタンの色を少し変える */
+}
+
+/* 押下時のスタイル */
+.button:active {
+    transform: scale(0.95); /* ボタンを少し縮小 */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* 影を小さく */
+    background-color: #d0d0d0; /* 押下時の背景色 */
+}
