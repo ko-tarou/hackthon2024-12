@@ -1,12 +1,47 @@
 header {
+    justify-content: center;
     background-color: #fff; /* 背景色 */
     padding: 10px 20px; /* 上下左右のパディング */
     border-bottom: 2px solid #ddd; /* 下部に薄いグレーの仕切り線 */
+    
+    nav {
+        display: flex; /* 横並びに */
+        align-items: center; /* 縦方向の中央揃え */
+    }
+    
+    nav a {
+        text-decoration: none; /* 下線を削除 */
+        font-size: 18px; /* フォントサイズ */
+        color: #333; /* テキストの色 */
+        padding: 8px 40px; /* パディング */
+        transition: color 0.3s ease, background-color 0.3s ease; /* ホバー時の変化 */
+        border-radius: 25px;
+    }
+    
+    nav a:hover {
+        color: #fff; /* ホバー時のテキスト色 */
+        background-color: #007bff; /* ホバー時の背景色 */
+        border-radius: 25px; /* 角を丸く */
+    }
+    
+    nav a:active {
+        transform: scale(0.95); /* リンクがクリックされた時に縮小（押し込まれる感じ） */
+        background-color: #acb1df; /* クリック時に背景色を少し濃く変更 */
+        border-radius: 25px;
+    }
+    
+    nav a:focus {
+        background-color: #007bff; /* 選択中の背景色を変更 */
+        outline: none; 
+        border-radius: 25px;
+        transform: scale(1.05);
+    }
+
     .circle-button {
         width: 40px; /* ボタンの幅を40pxに設定 */
         height: 40px; /* ボタンの高さを40pxに設定 */
         border-radius: 50%; /* ボタンを円形にするため、半径50%を指定 */
-        background-color: #007bff; /* ボタンの背景色を青色に設定 */
+        background-color: #4c9fd2; /* ボタンの背景色を青色に設定 */
         color: white; /* ボタン内のテキスト色を白色に設定 */
         font-size: 20px; /* テキストのフォントサイズを20pxに設定 */
         border: none; /* ボタンの枠線を消す */
@@ -17,45 +52,24 @@ header {
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* ボタンに影をつける */
         transition: background-color 0.3s ease, transform 0.2s ease; /* ホバー時に色とサイズが変わるようにアニメーションを設定 */
         position: absolute; /* 親要素内で絶対位置に配置 */
-        right: 20px; /* 親要素の右端から20px離れた位置に配置 */
+        right: 45px; /* 親要素の右端から20px離れた位置に配置 */
         top: 20px; /* 親要素の上端から20px離れた位置に配置 */
     }
-}
 
-nav {
-    display: flex; /* 横並びに */
-    justify-content: space-around; /* 各リンクを均等配置 */
-    align-items: center; /* 縦方向の中央揃え */
-}
-
-nav a {
-    text-decoration: none; /* 下線を削除 */
-    font-size: 18px; /* フォントサイズ */
-    color: #333; /* テキストの色 */
-    padding: 8px 12px; /* パディング */
-    transition: color 0.3s ease, background-color 0.3s ease; /* ホバー時の変化 */
-    margin-right: 30px; /* 右にスペースを追加 */
-}
-
-nav a:hover {
-    color: #fff; /* ホバー時のテキスト色 */
-    background-color: #007bff; /* ホバー時の背景色 */
-    border-radius: 4px; /* 角を丸く */
-}
-
-nav a:active {
-    transform: scale(0.95); /* リンクがクリックされた時に縮小（押し込まれる感じ） */
-    background-color: #0056b3; /* クリック時に背景色を少し濃く変更 */
-}
-
-.circle-button:hover {
-    background-color: #0056b3; /* ホバー時の背景色（青を少し濃く） */
-    transform: scale(1.1); /* 少し拡大する */
-}
-
-.circle-button:active {
-    transform: scale(0.95); /* クリック時にボタンを少し縮める（押した感触） */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 影を少し小さくして、押し込まれた感覚を演出 */
-
+    .circle-button:hover {
+        background-color: #007bff; /* ホバー時の背景色（青を少し濃く） */
+        transform: scale(1.1); /* 少し拡大する */
+    }
+    
+    .circle-button:active {
+        transform: scale(0.95); /* クリック時にボタンを少し縮める（押した感触） */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 影を少し小さくして、押し込まれた感覚を演出 */
+    }
+    
+    
+    .circle-button:focus {
+        background-color: #004085; /* 選択中の背景色 */
+        outline: none; /* フォーカス時のアウトラインを消す */
+    }
 
 }
