@@ -1,9 +1,9 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes,Link } from "react-router-dom";
-import Toppage from "./pages/Toppage"
-import Projectpage from "./pages/Projectpage.js"
-import SlidePage from "./pages/Slidepage.js"
-import TestPage from "./pages/TestPage.js"
+import Toppage from "./pages/TopPage/TopPage.js"
+import Projectpage from "./pages/ProjectPage/ProjectPage.js"
+import SlidePage from "./pages/SlidePage/SlidePage.js"
+import TestPage from "./pages/TestPage/TestPage.js"
 
 function App() {
   return (
