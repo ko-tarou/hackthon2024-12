@@ -1,6 +1,6 @@
 import React from 'react'
-import "../../styles/tabs/Char.css"
-import TextBoxArea from "../../common/drop/TextBoxArea"
+import "./Char.css"
+import TextBoxArea from '../../Elements/TextBox';
 
 function Char() {
   return (

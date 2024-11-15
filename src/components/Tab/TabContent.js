@@ -1,5 +1,5 @@
 import React from 'react';
-import Char from "../../pages/tabs/Char.js"
+import Char from "./Char/Char.js"
 
 function TabContent({ activeTab }) {
   return (

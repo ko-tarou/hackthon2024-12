@@ -1,8 +1,6 @@
 import React ,{ useState }from 'react'
 import axios from "axios"
-import '../styles/Toppage.css'
-import "../App.css"
-import MovableTextBox from '../common/MovableTextBox'
+import './TopPage.css'
 
 function Toppage() {
   const [ name, setName ] = useState("")
@@ -29,7 +27,6 @@ function Toppage() {
     <div className='Toppage'>
 
       <h1>ドラッグ可能なテキストボックス</h1>
-      <MovableTextBox/>
 
       <div>高岡己太朗</div>
       <div>石井夢衣</div>
