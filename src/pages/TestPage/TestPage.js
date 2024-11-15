@@ -1,8 +1,9 @@
 import React from 'react'
+import "./TestPage.css"
 
 function TestPage() {
   return (
-    <div>TestPage</div>
+    <div className='title'>TestPage</div>
   )
 }
 
