@@ -29,8 +29,8 @@ function Toppage() {
       <h1>ドラッグ可能なテキストボックス</h1>
 
       <div>高岡己太朗</div>
-      <div></div>
-      <div></div>
+      <div>石井夢衣</div>
+      <div>佐藤靖波</div>
       <div></div>
       <div></div>
 
