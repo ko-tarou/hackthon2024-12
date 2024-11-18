@@ -4,6 +4,7 @@ import Toppage from "./pages/TopPage/TopPage.js"
 import Projectpage from "./pages/ProjectPage/ProjectPage.js"
 import SlidePage from "./pages/SlidePage/SlidePage.js"
 import TestPage from "./pages/TestPage/TestPage.js"
+import SlideView from './pages/SlideView/SlideView.js';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/project" element={<Projectpage/>}/>
         <Route path="/slide" element={<SlidePage/>}/>
         <Route path="/test" element={<TestPage/>}/>
+        <Route path="/slideview" element={<SlideView/>}/>
       </Routes>
     </Router>
   );
