@@ -2,7 +2,7 @@ header {
     justify-content: center;
     background-color: #fff; /* 背景色 */
     padding: 10px 20px; /* 上下左右のパディング */
-    border-bottom: 2px solid #ddd; /* 下部に薄いグレーの仕切り線 */
+    border-bottom: 2px solid #ddd; 
     
     nav {
         display: flex; /* 横並びに */
@@ -71,5 +71,40 @@ header {
         background-color: #004085; /* 選択中の背景色 */
         outline: none; /* フォーカス時のアウトラインを消す */
     }
+
+    .search-container {
+        display: flex; /* 子要素（検索フィールドとボタン）を横並びに配置 */
+        align-items: center; /* 子要素を垂直方向に中央揃え */
+        gap: 8px; /* 検索フィールドとボタンの間隔を 8px に設定 */
+        margin-left: 15px; /* 左側の余白を 15px に設定 */
+    }
+      
+    .search-field {
+        padding: 8px; /* 内側の余白を 8px に設定 */
+        border-radius: 4px; /* 角を少し丸くする */
+        border: 1px solid #ccc; /* 灰色の境界線を追加 */
+        flex: 1; /* フレックスコンテナ内で検索フィールドを可能な限り広げる */
+    }
+      
+    .search-button {
+        padding: 5px 16px; /* 縦方向に 8px、横方向に 16px の内側余白を設定 */
+        background-color: #007bff; /* ボタンの背景色を青色に設定 */
+        color: white; /* ボタン内のテキスト色を白に設定 */
+        border: none; /* 境界線をなくす */
+        border-radius: 4px; /* 角を少し丸くする */
+        cursor: pointer; /* マウスカーソルをクリック可能な形状にする */
+        transition: transform 0.1s, background-color 0.2s; /* サイズや背景色の変化をスムーズにする */
+    }
+      
+    .search-button:hover {
+        background-color: #0056b3; /* ボタンにマウスを乗せたときに背景色を濃い青に変更 */
+    }
+      
+    .search-button:active {
+        transform: scale(0.9); /* ボタンを押したときに少し縮小させる */
+        background-color: #003d82; /* 押したときにさらに濃い青色に変更 */
+    }
+      
+
 
 }
