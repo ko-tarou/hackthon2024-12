@@ -13,7 +13,7 @@ header {
         text-decoration: none; /* 下線を削除 */
         font-size: 18px; /* フォントサイズ */
         color: #333; /* テキストの色 */
-        padding: 8px 40px; /* パディング */
+        padding: 8px 50px; /* パディング */
         transition: color 0.3s ease, background-color 0.3s ease; /* ホバー時の変化 */
         border-radius: 25px;
     }
@@ -28,6 +28,8 @@ header {
         transform: scale(0.95); /* リンクがクリックされた時に縮小（押し込まれる感じ） */
         background-color: #acb1df; /* クリック時に背景色を少し濃く変更 */
         border-radius: 25px;
+        background-color: #007b00; /* 押した後の保持される背景色 */
+        color: #fff; /* テキスト色を白に変更 */
     }
     
     nav a:focus {
@@ -52,7 +54,7 @@ header {
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* ボタンに影をつける */
         transition: background-color 0.3s ease, transform 0.2s ease; /* ホバー時に色とサイズが変わるようにアニメーションを設定 */
         position: absolute; /* 親要素内で絶対位置に配置 */
-        right: 45px; /* 親要素の右端から20px離れた位置に配置 */
+        right: 50px; /* 親要素の右端からpx離れた位置に配置 */
         top: 20px; /* 親要素の上端から20px離れた位置に配置 */
     }
 

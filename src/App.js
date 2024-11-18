@@ -4,6 +4,7 @@ import Toppage from "./pages/TopPage/TopPage.js";
 import Projectpage from "./pages/ProjectPage/ProjectPage.js";
 import SlidePage from "./pages/SlidePage/SlidePage.js";
 import TestPage from "./pages/TestPage/TestPage.js";
+import SlideView from "./pages/SlideView/SlideView.js";
 
 const Header = () => {
   const location = useLocation();
@@ -40,10 +41,11 @@ function App() {
       
       {/* ルートの設定 */}
       <Routes>
-        <Route path="/" element={<Toppage />} />
-        <Route path="/project" element={<Projectpage />} />
-        <Route path="/slide" element={<SlidePage />} />
-        <Route path="/test" element={<TestPage />} />
+        <Route path="/" element={<Toppage/>}/>
+        <Route path="/project" element={<Projectpage/>}/>
+        <Route path="/slide" element={<SlidePage/>}/>
+        <Route path="/test" element={<TestPage/>}/>
+        <Route path="/slideview" element={<SlideView/>}/>
       </Routes>
     </Router>
   );
