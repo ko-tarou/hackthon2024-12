@@ -105,10 +105,30 @@ function Slidepage() {
     }
   }, [selectedBoxId, isTextBoxFocused]);
 
+  const saveSlides = () => {
+    const slideData = {
+      textBoxes, // 必要なら他の情報も含める
+    };
+  
+    const slideJSON = JSON.stringify(slideData);
+    localStorage.setItem('slideData', slideJSON); // ローカルストレージに保存
+    alert('スライドが保存されました！');
+  };
+  
+
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [handleKeyDown]);
+
+  useEffect(() => {
+    const savedSlideData = localStorage.getItem('slideData');
+    if (savedSlideData) {
+      const { textBoxes: savedTextBoxes } = JSON.parse(savedSlideData);
+      setTextBoxes(savedTextBoxes);
+    }
+  }, []);
+  
 
   return (
     <DndProvider backend={HTML5Backend}>
@@ -139,7 +159,9 @@ function Slidepage() {
                 />
               ))}
             </div>
-            <div className='note'></div>
+            <div className='note'>
+              <button onClick={saveSlides}>スライドを保存</button>
+            </div>
           </div>
           <div className='slide-list'></div>
         </div>
