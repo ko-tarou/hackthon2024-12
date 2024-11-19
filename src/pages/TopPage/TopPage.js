@@ -32,7 +32,7 @@ function Toppage() {
       <div>石井夢衣</div>
       <div>佐藤靖波</div>
       <div>岩崎一道</div>
-      <div>塩田陸来</div>
+      <div>陸来</div>
 
 
       <h1>フォーム</h1>
