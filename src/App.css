@@ -2,7 +2,8 @@ header {
     justify-content: center;
     background-color: #fff; /* 背景色 */
     padding: 10px 20px; /* 上下左右のパディング */
-    border-bottom: 2px solid #ddd; 
+    border-bottom: 2px solid #ddd;
+    
     
     nav {
         display: flex; /* 横並びに */
@@ -107,6 +108,19 @@ header {
         background-color: #003d82; /* 押したときにさらに濃い青色に変更 */
     }
       
-
+      .circle-button {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+      
+      .circle-button:hover {
+        background-color: #0056b3;
+      }
 
 }

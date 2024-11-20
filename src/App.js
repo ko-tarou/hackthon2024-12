@@ -1,5 +1,8 @@
 import './App.css';
+import './components/hint_circle-button/hint_circle-button.css';
+import Modal from './components/hint_circle-button/hint_circle-button.js';
 import { BrowserRouter as Router, Route, Routes, Link, useLocation } from "react-router-dom";
+import React, { useState } from "react";
 import Toppage from "./pages/TopPage/TopPage.js";
 import Projectpage from "./pages/ProjectPage/ProjectPage.js";
 import SlidePage from "./pages/SlidePage/SlidePage.js";
@@ -8,6 +11,10 @@ import SlideView from "./pages/SlideView/SlideView.js";
 
 const Header = () => {
   const location = useLocation();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   return (
     <header>
@@ -16,7 +23,6 @@ const Header = () => {
         <Link to="/project">プロジェクト</Link>
         <Link to="/slide">スライド</Link>
         <Link to="/test">実験</Link>
-        {/* 条件に応じて検索フィールドと検索ボタンを表示 */}
         {['/', '/slide'].includes(location.pathname) && (
           <div className="search-container">
             <input
@@ -28,7 +34,8 @@ const Header = () => {
           </div>
         )}
       </nav>
-      <button className="circle-button">?</button>
+      <button className="circle-button" onClick={openModal}>?</button>
+      <Modal isOpen={isModalOpen} onClose={closeModal} />
     </header>
   );
 };
@@ -36,16 +43,13 @@ const Header = () => {
 function App() {
   return (
     <Router>
-      {/* ヘッダーコンポーネント */}
       <Header />
-      
-      {/* ルートの設定 */}
       <Routes>
-        <Route path="/" element={<Toppage/>}/>
-        <Route path="/project" element={<Projectpage/>}/>
-        <Route path="/slide" element={<SlidePage/>}/>
-        <Route path="/test" element={<TestPage/>}/>
-        <Route path="/slideview" element={<SlideView/>}/>
+        <Route path="/" element={<Toppage />} />
+        <Route path="/project" element={<Projectpage />} />
+        <Route path="/slide" element={<SlidePage />} />
+        <Route path="/test" element={<TestPage />} />
+        <Route path="/slideview" element={<SlideView />} />
       </Routes>
     </Router>
   );
