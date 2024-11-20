@@ -107,6 +107,53 @@ header {
         background-color: #003d82; /* 押したときにさらに濃い青色に変更 */
     }
       
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+      }
+      
+      .modal-content {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        width: 400px;/* modalの書き込み部分の幅 */
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      
+      .modal-close-button {
+        position: absolute;
+        top: 270px;
+        right: 435px;
+        border: none;
+        background: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+      
+      .circle-button {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+      
+      .circle-button:hover {
+        background-color: #0056b3;
+      }
+      
 
 
 }
