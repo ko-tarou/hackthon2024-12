@@ -1,6 +1,6 @@
 import './App.css';
-import './hint_circle-button/hint_circle-button.css';
-import Modal from './hint_circle-button/hint_circle-button.js';
+import './components/hint_circle-button/hint_circle-button.css';
+import Modal from './components/hint_circle-button/hint_circle-button.js';
 import { BrowserRouter as Router, Route, Routes, Link, useLocation } from "react-router-dom";
 import React, { useState } from "react";
 import Toppage from "./pages/TopPage/TopPage.js";
