@@ -1,4 +1,6 @@
 import './App.css';
+import './hint_circle-button/hint_circle-button.css';
+import Modal from './hint_circle-button/hint_circle-button.js';
 import { BrowserRouter as Router, Route, Routes, Link, useLocation } from "react-router-dom";
 import React, { useState } from "react";
 import Toppage from "./pages/TopPage/TopPage.js";
@@ -6,22 +8,6 @@ import Projectpage from "./pages/ProjectPage/ProjectPage.js";
 import SlidePage from "./pages/SlidePage/SlidePage.js";
 import TestPage from "./pages/TestPage/TestPage.js";
 import SlideView from "./pages/SlideView/SlideView.js";
-
-const Modal = ({ isOpen, onClose }) => {
-  if (!isOpen) return null;
-
-  return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <button className="modal-close-button" onClick={onClose}>
-          ×
-        </button>
-        <h2>説明書</h2>
-        <p>使い方ここに書く（行によって×ボタンの位置変更いる）</p>
-      </div>
-    </div>
-  );
-};
 
 const Header = () => {
   const location = useLocation();
