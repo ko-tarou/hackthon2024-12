@@ -23,9 +23,12 @@
 .box-whole {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3列のグリッド */
-    gap: 20px; /* 各ボックス間の間隔 */
+    gap: 5%; /* 各ボックス間の間隔 */
     width: 100%;
     max-width: none; /* 最大幅を制限しない */
+    margin-left: 5%;
+    margin-bottom: 10%;
+    
 }
 
 /* 各ボックス */
@@ -33,6 +36,6 @@
     background-color: #8c7b76; /* ボックスの背景色 */
     border-radius: 4px; /* 角丸 */
     aspect-ratio: 16 / 9; /* 横16：縦9の比率を設定 */
-    width: 100%; /* 幅をグリッドに応じて設定 */
+    width: 90%; /* 幅をグリッドに応じて設定 */
 }
 
