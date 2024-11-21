@@ -9,11 +9,15 @@ function TestPage() {
     navigate('../slide');
   };
 
+  const goNewSlide = () => {
+    navigate('../slideview');
+  };
+
   return (
     <div className='TestPage'>
       <div className='title'>TestPage</div>
       <button className='button' onClick={goToNewSlide}>新規スライドを作成</button>
-      <button className='button'>作ったスライドを見る</button>
+      <button className='button' onClick={goNewSlide}>作ったスライドを見る</button>
     </div>
   );
 }
