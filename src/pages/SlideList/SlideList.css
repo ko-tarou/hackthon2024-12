@@ -1,13 +1,34 @@
-/* 通常の枠線 */
+/* 全体の横並び配置 */
+.slide-container {
+display: flex;            /* 横方向に要素を並べる */
+justify-content: space-around; /* 均等に配置 */
+align-items: center;      /* 垂直方向を中央揃え */
+gap: 20px;                /* 各ボックス間の間隔 */
+overflow-x: auto;         /* 横スクロールを可能にする */
+padding: 20px;
+background-color: #f5f5f5; /* 背景色を設定 */
+height: 100vh;            /* ビューポート高さを使用 */
+}
+
+/* 個々のボックスのスタイル */
 .clickable-text {
-    border: 1px solid #ccc;
-    padding: 5px;
-    min-height: 10px;
-    cursor: pointer;
-    outline: none; /* デフォルトのフォーカスリングを消す */
-  }
-  
-  /* フォーカス時に枠線を太くする */
-  .clickable-text:focus {
-    border: 2px solid #000000; /* 青い太めの枠線 */
-  }
+border: 2px solid #ccc;
+padding: 20px;
+min-height: 150px;
+min-width: 200px;
+cursor: pointer;
+outline: none;
+background-color: #ffffff;
+text-align: center;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.clickable-text:hover {
+transform: scale(1.05);  /* ホバー時に拡大 */
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.clickable-text:focus {
+border: 2px solid #000;
+}
