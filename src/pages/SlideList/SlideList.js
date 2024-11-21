@@ -6,8 +6,8 @@ const SlideList = () => {
 const refs = useRef([]);
 
 // 必要な数だけrefs配列にrefを追加
-if (refs.current.length < 7) {
-	for (let i = refs.current.length; i < 7; i++) {
+if (refs.current.length < 1) {
+	for (let i = refs.current.length; i < 1; i++) {
 	refs.current.push(React.createRef());
 	}
 }
@@ -28,11 +28,10 @@ return (
 		className="clickable-text"
 		onClick={() => handleClick(ref)}
 		>
-		Slide {index + 1}
 		</div>
 	))}
 	</div>
 );
-};
+}
 
 export default SlideList;
