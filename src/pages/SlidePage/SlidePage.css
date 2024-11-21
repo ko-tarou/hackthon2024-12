@@ -1,88 +1,65 @@
 /* object-list */
-
-.object-list .tab{
+.object-list .tab {
     display: flex;
-    width: 30%;
+    width: 27%; /* 少し大きく */
     background-color: white;
-    border: 5px solid black;
+    border: 5px solid black; /* ボーダーを程よく太く */
 }
 
-.object-list .content{
+.object-list .content {
     display: flex;
-    width: 70%;
+    width: 68%; /* 少し大きく */
     background-color: white;
-    border: 5px solid black;
+    border: 5px solid black; /* ボーダーを程よく太く */
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* 基本構成 */
-.Slidepage{
+.Slidepage {
     display: flex;
-    gap: 5vw;
-    margin: 5vh;
+    height: 87%; /* 高さを少し拡大 */
+    gap: 4.5vw; /* 間隔を少し広げる */
+    margin: 4.5vh; /* マージンを少し広げる */
 }
 
-.Slidepage .not-object{
+.Slidepage .not-object {
     display: flex;
     flex-direction: column;
-    gap: 5vh;
+    gap: 4.5vh; /* 間隔を少し広げる */
 }
 
-.Slidepage .not-object .main{
+.Slidepage .not-object .main {
     display: flex;
-    gap: 5vw;
+    gap: 4.5vw; /* 間隔を少し広げる */
 }
 
-.Slidepage .object-list{
-    display: flex;
-    background-color: white;
-    border: 10px solid black;
-    height: 80vh;
-    width: 15vw;
-}
-
-.Slidepage .not-object .slide-list{
+.Slidepage .object-list {
     display: flex;
     background-color: white;
-    border: 10px solid black;
-    height: 10vh;
-    width: 75vw;
+    border: 6px solid black; /* ボーダーを少し太く */
+    height: 72vh; /* 高さを控えめに拡大 */
+    width: 13vw; /* 幅を控えめに拡大 */
 }
 
-.Slidepage .not-object .main .main-slide{
+.Slidepage .not-object .slide-list {
     display: flex;
     background-color: white;
-    border: 10px solid black;
-    height: 60vh;
-    width: 55vw;
+    border: 6px solid black; /* ボーダーを少し太く */
+    height: 10vh; /* 高さを控えめに拡大 */
+    width: 68vw; /* 幅を控えめに拡大 */
 }
 
-.Slidepage .not-object .main .note{
+.Slidepage .not-object .main .main-slide {
     display: flex;
     background-color: white;
-    border: 10px solid black;
-    height: 60vh;
-    width: 15vw;
+    border: 6px solid black;
+    height: 62vh;
+    width: calc(62vh * 16 / 9); /* 16:9 に調整 */
+}
+
+.Slidepage .not-object .main .note {
+    display: flex;
+    background-color: white;
+    border: 6px solid black; /* ボーダーを少し太く */
+    height: 62vh; /* 高さを控えめに拡大 */
+    width: 16vw; /* 幅を控えめに拡大 */
 }
