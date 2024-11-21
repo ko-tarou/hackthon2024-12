@@ -5,19 +5,19 @@ import './TestPage.css';
 function TestPage() {
   const navigate = useNavigate();
 
-  const goToNewSlide = () => {
+  const goTocreateSlide = () => {
     navigate('../slide');
   };
 
-  const goNewSlide = () => {
+  const goToviewSlide = () => {
     navigate('../slideview');
   };
 
   return (
     <div className='TestPage'>
       <div className='title'>TestPage</div>
-      <button className='button' onClick={goToNewSlide}>新規スライドを作成</button>
-      <button className='button' onClick={goNewSlide}>作ったスライドを見る</button>
+      <button className='button' onClick={goTocreateSlide}>新規スライドを作成</button>
+      <button className='button' onClick={goToviewSlide}>作ったスライドを見る</button>
     </div>
   );
 }
