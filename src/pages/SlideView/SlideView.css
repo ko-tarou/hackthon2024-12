@@ -14,8 +14,25 @@
 
 .rightside {
     flex: 8; /* 全体の8割の高さ */
-    background-color: #dcdcdc; /* 背景色 */
+    background-color: #ffffff; /* 背景色 */
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
+.box-whole {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3列のグリッド */
+    gap: 20px; /* 各ボックス間の間隔 */
+    width: 100%;
+    max-width: none; /* 最大幅を制限しない */
+}
+
+/* 各ボックス */
+.box {
+    background-color: #8c7b76; /* ボックスの背景色 */
+    border-radius: 4px; /* 角丸 */
+    aspect-ratio: 16 / 9; /* 横16：縦9の比率を設定 */
+    width: 100%; /* 幅をグリッドに応じて設定 */
+}
+
