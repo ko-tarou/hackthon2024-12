@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "./SlideList.css";
 
 const SlideList = () => {
@@ -33,11 +33,23 @@ const handleClick = (ref, id) => {
 	}
 };
 
+// バックスペースキーを検知して削除する処理
+const handleKeyDown = (event) => {
+	if (event.key === "Backspace" && focusedBoxId !== null) {
+	delBox(); // バックスペースが押されたときにdelBoxを実行
+	}
+};
+
+// バックスペースのイベントリスナーを追加
+useEffect(() => {
+	window.addEventListener("keydown", handleKeyDown);
+	return () => {
+	window.removeEventListener("keydown", handleKeyDown);
+	};
+}, [focusedBoxId]); // focusedBoxIdが変わったときに再実行されるように依存配列に追加
+
 return (
 	<div className="slide-container">
-	<button className="del-box-button" onClick={delBox}>
-		-
-	</button>
 	{Array.from({ length: boxCount }).map((_, index) => (
 		<div
 		key={index}

@@ -43,13 +43,3 @@ border: 2px solid #000;
     border: 1px solid #000;;
     border-radius: 5px;
   }
-
-.del-box-button {
-margin-top: 10px;
-	padding: 5px 10px;
-	font-size: 16px;
-	cursor: pointer;
-	background-color: transparent;
-	border: 1px solid #000;;
-	border-radius: 5px;
-}
