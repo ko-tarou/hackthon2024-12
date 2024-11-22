@@ -1,37 +1,42 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./SlideList.css";
 
 const SlideList = () => {
-// 一度だけrefs配列を初期化
-const refs = useRef([]);
+  // refs配列を管理するuseRef
+  const refs = useRef([]);
+  // ボックスの数を管理するuseState
+  const [boxCount, setBoxCount] = useState(1);
 
-// 必要な数だけrefs配列にrefを追加
-if (refs.current.length < 1) {
-	for (let i = refs.current.length; i < 1; i++) {
-	refs.current.push(React.createRef());
-	}
-}
+  // ボタンをクリックしたときの処理
+  const addBox = () => {
+    // refs配列に新しいrefを追加
+    refs.current.push(React.createRef());
+    // ボックス数を増やす
+    setBoxCount((prevCount) => prevCount + 1);
+  };
 
-const handleClick = (ref) => {
-	if (ref.current) {
-	ref.current.focus(); // クリック時にフォーカスを設定
-	}
+  const handleClick = (ref) => {
+    if (ref.current) {
+      ref.current.focus(); // クリック時にフォーカスを設定
+    }
+  };
+
+  return (
+    <div className="slide-container">
+      {Array.from({ length: boxCount }).map((_, index) => (
+        <div
+          key={index}
+          ref={refs.current[index] || (refs.current[index] = React.createRef())}
+          tabIndex={0} // フォーカス可能にするために tabIndex を追加
+          className="clickable-text"
+          onClick={() => handleClick(refs.current[index])}
+        >
+        </div>
+      ))}
+      {/* ボタンを追加 */}
+      <button className="add-box-button" onClick={addBox}>+</button>
+    </div>
+  );
 };
-
-return (
-	<div className="slide-container">
-	{refs.current.map((ref, index) => (
-		<div
-		key={index}
-		ref={ref}
-		tabIndex={0} // フォーカス可能にするために tabIndex を追加
-		className="clickable-text"
-		onClick={() => handleClick(ref)}
-		>
-		</div>
-	))}
-	</div>
-);
-}
 
 export default SlideList;
