@@ -64,6 +64,6 @@ return (
 	</button>
 	</div>
 );
-};
+}
 
 export default SlideList;

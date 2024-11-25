@@ -158,9 +158,10 @@ function Slidepage() {
                   onBlur={() => setIsTextBoxFocused(false)}
                 />
               ))}
+              <button onClick={saveSlides}>スライドを保存</button>
             </div>
             <div className='note'>
-              <button onClick={saveSlides}>スライドを保存</button>
+              <SlideList/>
             </div>
           </div>
           <div className='slide-list'></div>
