@@ -8,7 +8,17 @@ const SlideView = () => {
           左側
         </div>
         <div className='rightside'>
-          右側     
+          <div className='box-whole'>
+            <div className='box'></div>
+            <div className='box'></div>
+            <div className='box'></div>
+            <div className='box'></div>
+            <div className='box'></div>
+            <div className='box'></div>
+            <div className='box'></div>
+            <div className='box'></div>
+            <div className='box'></div>
+          </div>    
         </div>
 
 
