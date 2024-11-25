@@ -1,14 +1,14 @@
 /* object-list */
 .object-list .tab {
     display: flex;
-    width: 27%; /* 少し大きく */
+    width: 27%;
     background-color: white;
     border: 5px solid black; /* ボーダーを程よく太く */
 }
 
 .object-list .content {
     display: flex;
-    width: 68%; /* 少し大きく */
+    width: 68%; 
     background-color: white;
     border: 5px solid black; /* ボーダーを程よく太く */
 }
